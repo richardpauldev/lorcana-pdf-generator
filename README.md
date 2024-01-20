@@ -39,7 +39,7 @@ To generate a PDF for a specific deck, you need a deck configuration file in JSO
 Contributions to the Lorcana Deck PDF Generator are welcome. Please feel free to fork the repository, make your changes, and create a pull request.
 
 ## License
-This project is open-source and available under the MIT License[MIT License](https://opensource.org/license/mit/).
+This project is open-source and available under the [MIT License](https://opensource.org/license/mit/).
 
 ## Contact
 For more information or queries, please contact me at:
