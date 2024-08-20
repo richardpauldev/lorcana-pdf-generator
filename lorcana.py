@@ -9,7 +9,7 @@ from io import BytesIO
 
 def read_deck_from_file(file_path):
     with open(file_path, 'r') as file:
-        data = json.load(file_path)
+        data = json.load(file)
         return data["ObjectStates"][0]
 
 data = read_deck_from_file('deck.json')
