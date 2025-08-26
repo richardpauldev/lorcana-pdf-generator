@@ -30,13 +30,15 @@ def download_image(url, image_cache):
 pdf_file = "lorcana_deck.pdf"
 page_width, page_height = letter
 landscape_letter = (page_height, page_width)
-c = canvas.Canvas(pdf_file, pagesize=landscape_letter)
+portrait_letter = (page_width, page_height)
+c = canvas.Canvas(pdf_file, pagesize=portrait_letter)
 
 card_width, card_height = 2.5 * inch, 3.5 * inch
-margin_x, margin_y = 0.5 * inch, 0.5 * inch
+margin_x, margin_y = 0.2 * inch, 0.2 * inch
+padding = 0.02 * inch
 
-cards_per_row = int((landscape_letter[0] - 2 * margin_x) / card_width)
-cards_per_column = int((landscape_letter[1] - 2 * margin_y) / card_height)
+cards_per_row = int((portrait_letter[0] - 2 * margin_x) / card_width)
+cards_per_column = int((portrait_letter[1] - 2 * margin_y) / card_height)
 
 print(int((page_height - 2 * margin_x) / card_width) * int((page_width - 2 * margin_y) / card_height))
 
@@ -47,8 +49,8 @@ for deck_id, deck_info in data["CustomDeck"].items():
     face_url = deck_info["FaceURL"]
     image = download_image(face_url, image_cache)
     if image:
-        x = margin_x + current_column * card_width
-        y = landscape_letter[1] - margin_y - card_height - (current_row * card_height)
+        x = margin_x + (current_column * card_width) + (padding * current_column)
+        y = portrait_letter[1] - margin_y - card_height - (current_row * card_height) - (padding * current_row)
         c.drawImage(image, x, y, width=card_width, height=card_height)
         
         current_column += 1
