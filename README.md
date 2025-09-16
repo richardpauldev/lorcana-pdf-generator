@@ -4,7 +4,7 @@
 The Lorcana Deck PDF Generator is a Python script designed to create a printable PDF of a Lorcana card deck. It reads a deck configuration from a JSON file, which can be obtained from [Dreamborn](https://dreamborn.ink/), downloads the card images, and arranges them in a grid layout on a PDF file. This tool is perfect for tabletop game enthusiasts who want to print custom decks for their games.
 
 ## Features
-- **Deck COnfiguration Reading:** Parses a JSON file to obtain deck information.
+- **Deck Configuration Reading:** Parses a JSON file to obtain deck information.
 - **Image Downloading:** Automatically downloads card images from specified URLs.
 - **PDF Generation:** Arranges images in a grid layout and generates a PDF file.
 - **Customizable Layour:** Supports adjustments in margins, card sizes, and page layout.
