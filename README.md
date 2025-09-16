@@ -27,13 +27,43 @@ To generate a PDF for a specific deck, you need a deck configuration file in JSO
 4. Download the JSON file.
 
 ## Usage
-1. Place your downloaded `deck.json` file in the same directory as the script.
-2. Run the script: `python lorcana.py`
-3. The script will generate a PDF file named `lorcana_deck.pdf` in the same directory.
+
+Run the script from the command line:
+
+```bash
+python lorcana_proxy_generator.py [options]
+```
+
+### Arguments
+
+| Argument               | Description                                | Default            |
+| ---------------------- | ------------------------------------------ | ------------------ |
+| `-i`, `--input_file`   | Input deck file in JSON format             | `deck.json`        |
+| `-o`, `--output_file`  | Output PDF file name                       | `lorcana_deck.pdf` |
+| `-or`, `--orientation` | PDF orientation: `portrait` or `landscape` | `portrait`         |
+
+### Example Commands
+
+1. Generate proxies from a deck file named `deck.json` into `lorcana_deck.pdf` (portrait):
+
+       python lorcana_proxy_generator.py
+
+2. Specify a custom input and output:
+
+       python lorcana_proxy_generator.py -i my_deck.json -o test_proxies.pdf
+
+3. Generate the deck in landscape orientation:
+
+       python lorcana_proxy_generator.py -i my_deck.json -o landscape_proxies.pdf -or landscape
+
+## Output
+
+- The script produces a PDF with cards arranged to maximize the number of cards per page.
+- Each card is sized to **2.5 x 3.5 inches** (standard TCG size).
+- The script automatically deletes downloaded temporary image files after generating the PDF.
 
 ## Configuration
-- Modify the `tabletop_sim_deck_code` variable in the script with your deck's JSON configuration.
-- Adjust `card_width`, `card_height`, `margin_x`, and `margin_y` variables to change the layout.
+- Adjust `card_width`, `card_height`, `margin_x`, `margin_y` and `padding` variables to change the layout.
 
 ## Contributing
 Contributions to the Lorcana Deck PDF Generator are welcome. Please feel free to fork the repository, make your changes, and create a pull request.
